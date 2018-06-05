@@ -11,6 +11,9 @@ import org.springframework.web.context.ServletContextAware;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletContext;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -43,9 +46,20 @@ public class HomeController implements ServletContextAware{
 
     @RequestMapping(value = "save", method = RequestMethod.POST)
     public String save(@ModelAttribute("team") Team team, @RequestParam(value = "file")MultipartFile file, ModelMap modelMap){
-        String fileName = saveImage(file);
-        team.setPhoto(fileName);
-        modelMap.put("team", team);
+        String name = null;
+        if (!file.isEmpty()){
+            try{
+                byte[] bytes = file.getBytes();
+                name = file.getOriginalFilename();
+                String rootPath = "C:\\Users\\1\\Desktop\\untitled4\\src\\main\\resources\\static\\images";
+                File dir = new File(rootPath);
+                File uploadedFile = new File(dir + File.separator + name);
+                BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(uploadedFile));
+                stream.write(bytes);stream.flush();stream.close();
+                team.setPhoto(name);
+            }
+            catch (IOException z){}
+        }
         return "success";
     }
 
@@ -55,7 +69,7 @@ public class HomeController implements ServletContextAware{
         return "new_team";
     }
 
-    private String saveImage(MultipartFile file){
+   /* private String saveImage(MultipartFile file){
         try{
             byte[] bytes = file.getBytes();
             Path path = Paths.get(servletContext.getRealPath("/resources/images/" + file.getOriginalFilename()));
@@ -63,7 +77,7 @@ public class HomeController implements ServletContextAware{
             return file.getOriginalFilename();
         }
         catch (IOException e){return null;}
-    }
+    }*/
 
     @Override
     public void setServletContext(ServletContext servletContext){
