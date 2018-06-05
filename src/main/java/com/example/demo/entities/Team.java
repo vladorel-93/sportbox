@@ -1,11 +1,22 @@
 package com.example.demo.entities;
 
+import javax.persistence.*;
+
 /**
  * Created by 1 on 01.06.2018.
  */
+@Entity
+@Table(name = "teams")
 public class Team {
+
+    @Column
     private String name;
-    private int currentPosition;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    @Column
     private String photo;
 
     public Team() {
@@ -13,7 +24,7 @@ public class Team {
 
     public Team(String name, int currentPosition, String photo) {
         this.name = name;
-        this.currentPosition = currentPosition;
+        this.id = currentPosition;
         this.photo = photo;
     }
 
@@ -21,8 +32,8 @@ public class Team {
         return name;
     }
 
-    public int getCurrentPosition() {
-        return currentPosition;
+    public int getId() {
+        return id;
     }
 
     public String getPhoto() {
@@ -33,8 +44,8 @@ public class Team {
         this.name = name;
     }
 
-    public void setCurrentPosition(int currentPosition) {
-        this.currentPosition = currentPosition;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setPhoto(String photo) {
