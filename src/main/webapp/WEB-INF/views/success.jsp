@@ -16,10 +16,6 @@
             <td>${team.name}</td>
         </tr>
         <tr>
-            <td>Position</td>
-            <td>${team.id}</td>
-        </tr>
-        <tr>
             <td>photo</td>
             <td>
                 <img src="${pageContext.request.contextPath}/resources/images/${team.photo}"/>

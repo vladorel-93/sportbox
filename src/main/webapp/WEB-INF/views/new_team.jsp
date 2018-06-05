@@ -18,12 +18,6 @@
         </td>
     </tr>
     <tr>
-        <td>Current Position</td>
-        <td>
-            <s:input path="currentPosition"/>
-        </td>
-    </tr>
-    <tr>
         <td>Photo</td>
         <td>
             <input type="file" name="file"/>
