@@ -22,6 +22,8 @@ public class Team {
     public Team() {
     }
 
+    public Team(String name){this.name = name;}
+
     public Team(String name, int currentPosition, String photo) {
         this.name = name;
         this.id = currentPosition;
