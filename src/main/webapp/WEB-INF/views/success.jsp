@@ -8,19 +8,19 @@
 </head>
 <body>
 <table cellpadding="2" cellspacing="2" border="1">
-    <c:forEach var="team" items="repository">
         <tr>
-            <td>
+            <th>
                 Team
-            </td>
-            <td>${team.name}</td>
+            </th>
+            <th>photo</th>
         </tr>
-        <tr>
-            <td>photo</td>
-            <td>
-                <img src="${pageContext.request.contextPath}/resources/images/${team.photo}"/>
-            </td>
-        </tr>
+    <c:forEach var="team" items="${sessionScope.teams}">
+    <tr>
+        <td>${team.name}</td>
+        <td>
+            <img src="${pageContext.request.contextPath}/resources/images/${team.photo}"/>
+        </td>
+    </tr>
     </c:forEach>
 </table>
 <a href="newTeam">Add one more team</a>

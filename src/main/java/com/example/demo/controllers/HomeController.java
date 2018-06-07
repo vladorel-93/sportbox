@@ -13,10 +13,12 @@ import org.springframework.web.context.ServletContextAware;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created by 1 on 31.05.2018.
@@ -47,11 +49,18 @@ public class HomeController implements ServletContextAware{
                 File uploadedFile = new File(dir + File.separator + name);
                 BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(uploadedFile));
                 stream.write(bytes);stream.flush();stream.close();
-                team.setPhoto(rootPath + File.separator + name);
+                team.setPhoto(name);
+                repository.save(team);
             }
             catch (IOException z){}
         }
-        repository.save(team);
+        return "redirect:/showAllTeams";
+    }
+
+    @RequestMapping(value = "showAllTeams", method = RequestMethod.GET)
+    public String showAllTeams(HttpSession session){
+        List<Team> teams = (List<Team>)repository.findAll();
+        session.setAttribute("teams", teams);
         return "success";
     }
 
