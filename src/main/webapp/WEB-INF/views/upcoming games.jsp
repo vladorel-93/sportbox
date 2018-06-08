@@ -7,10 +7,9 @@
         var i = 0;
         var bets = [];
         function makePrediction(homeTeam,  awayTeam )
-        {
-            bets[i++] = {homeTeam: homeTeam, awayTeam: awayTeam, result: result};
-        }
+        {bets[i++] = {homeTeam: homeTeam, awayTeam: awayTeam, result: result};}
     </script>
+
 </head>
 <body>
 <form action="/bets" method="post">

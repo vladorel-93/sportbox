@@ -1,8 +1,6 @@
 package com.example.demo.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -10,41 +8,30 @@ import java.time.LocalDateTime;
  * Created by 1 on 07.06.2018.
  */
 @Entity
-@Table(name = "Match")
+@Table(name = "Matches")
 public class Match {
 
-    @Column
-    private int idHomeTeam;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
+    @Column
     private String homeTeam;
 
     @Column
-    private int idAwayTeam;
-
     private String awayTeam;
 
     @Column
     private String bet;
 
     @Column
-    private LocalDateTime Date_Time;
+    private Long Date_Time;
 
-    public Match(String homeTeam, String awayTeam, LocalDateTime date_Time){
-        this.awayTeam = awayTeam; this.homeTeam = homeTeam; Date_Time = date_Time;
-    }
-
-    public Match(int idHomeTeam, int idAwayTeam, LocalDateTime date_Time) {
-        this.idHomeTeam = idHomeTeam;
-        this.idAwayTeam = idAwayTeam;
-        Date_Time = date_Time;
-    }
-
-    public void setBet(String bet) {
+    public Match(String homeTeam, String awayTeam, String bet, Long date_Time) {
+        this.homeTeam = homeTeam;
+        this.awayTeam = awayTeam;
         this.bet = bet;
-    }
-
-    public String getBet() {
-        return bet;
+        Date_Time = date_Time;
     }
 
     public void setHomeTeam(String homeTeam) {
@@ -55,6 +42,14 @@ public class Match {
         this.awayTeam = awayTeam;
     }
 
+    public void setBet(String bet) {
+        this.bet = bet;
+    }
+
+    public void setDate_Time(Long date_Time) {
+        Date_Time = date_Time;
+    }
+
     public String getHomeTeam() {
         return homeTeam;
     }
@@ -63,27 +58,19 @@ public class Match {
         return awayTeam;
     }
 
-    public void setIdHomeTeam(int idHomeTeam) {
-        this.idHomeTeam = idHomeTeam;
+    public String getBet() {
+        return bet;
     }
 
-    public void setIdAwayTeam(int idAwayTeam) {
-        this.idAwayTeam = idAwayTeam;
-    }
-
-    public void setDate_Time(LocalDateTime date_Time) {
-        Date_Time = date_Time;
-    }
-
-    public int getIdHomeTeam() {
-        return idHomeTeam;
-    }
-
-    public int getIdAwayTeam() {
-        return idAwayTeam;
-    }
-
-    public LocalDateTime getDate_Time() {
+    public Long getDate_Time() {
         return Date_Time;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

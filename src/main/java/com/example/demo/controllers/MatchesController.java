@@ -28,7 +28,6 @@ public class MatchesController {
     @RequestMapping(value = "show_upcoming_games", method = RequestMethod.GET)
     public String showGames(HttpSession session)
     {
-        parser = new HtmlParser("https://www.myscore.ru/football/world/world-cup/");
         List<Match> matches = parser.getMatches();
         session.setAttribute("matches", matches);
         return "upcoming games";
