@@ -13,37 +13,63 @@ import java.time.LocalDateTime;
 @Table(name = "Match")
 public class Match {
 
-    private Team HomeTeam;
+    @Column
+    private int idHomeTeam;
 
-    private Team AwayTeam;
+    private String homeTeam;
+
+    @Column
+    private int idAwayTeam;
+
+    private String awayTeam;
 
     @Column
     private LocalDateTime Date_Time;
 
-    public Match(Team homeTeam, Team awayTeam, LocalDateTime date_Time) {
-        HomeTeam = homeTeam;
-        AwayTeam = awayTeam;
+    public Match(String homeTeam, String awayTeam, LocalDateTime date_Time){
+        this.awayTeam = awayTeam; this.homeTeam = homeTeam; Date_Time = date_Time;
+    }
+
+    public Match(int idHomeTeam, int idAwayTeam, LocalDateTime date_Time) {
+        this.idHomeTeam = idHomeTeam;
+        this.idAwayTeam = idAwayTeam;
         Date_Time = date_Time;
     }
 
-    public void setHomeTeam(Team homeTeam) {
-        HomeTeam = homeTeam;
+    public void setHomeTeam(String homeTeam) {
+        this.homeTeam = homeTeam;
     }
 
-    public void setAwayTeam(Team awayTeam) {
-        AwayTeam = awayTeam;
+    public void setAwayTeam(String awayTeam) {
+        this.awayTeam = awayTeam;
+    }
+
+    public String getHomeTeam() {
+        return homeTeam;
+    }
+
+    public String getAwayTeam() {
+        return awayTeam;
+    }
+
+    public void setIdHomeTeam(int idHomeTeam) {
+        this.idHomeTeam = idHomeTeam;
+    }
+
+    public void setIdAwayTeam(int idAwayTeam) {
+        this.idAwayTeam = idAwayTeam;
     }
 
     public void setDate_Time(LocalDateTime date_Time) {
         Date_Time = date_Time;
     }
 
-    public Team getHomeTeam() {
-        return HomeTeam;
+    public int getIdHomeTeam() {
+        return idHomeTeam;
     }
 
-    public Team getAwayTeam() {
-        return AwayTeam;
+    public int getIdAwayTeam() {
+        return idAwayTeam;
     }
 
     public LocalDateTime getDate_Time() {
