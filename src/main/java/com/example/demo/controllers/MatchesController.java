@@ -33,4 +33,10 @@ public class MatchesController {
         session.setAttribute("matches", matches);
         return "upcoming games";
     }
+
+    @RequestMapping(value = "bets", method = RequestMethod.POST)
+    public String saveBets(Object[] bets)
+    {
+        return "";
+    }
 }
