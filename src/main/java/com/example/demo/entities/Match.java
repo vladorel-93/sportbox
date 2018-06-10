@@ -27,6 +27,12 @@ public class Match {
     @Column
     private Long Date_Time;
 
+    public Match(String homeTeam, String awayTeam, Long date_Time){
+        this.homeTeam = homeTeam;
+        this.awayTeam = awayTeam;;
+        this.Date_Time = date_Time;
+    }
+
     public Match(String homeTeam, String awayTeam, String bet, Long date_Time) {
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;

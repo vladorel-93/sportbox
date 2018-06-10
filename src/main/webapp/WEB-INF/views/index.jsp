@@ -4,8 +4,14 @@
     <title>Teams</title>
 </head>
 <body>
-<h5>Hello! No teams available now. pliease load some teams</h5>
+<h5>Hello! Select a date to see upcoming matches</h5>
 <a href="/newTeam">Add new team</a>
-<a href="/show_upcoming_games">Show upcoming games</a>
+<p>
+    <form action="show_upcoming_games">
+    <input type="date" name="calendar"/>
+    <input type="submit" name="submit" value="/show_upcoming_games"/>
+</form>
+
+</p>
 </body>
 </html>

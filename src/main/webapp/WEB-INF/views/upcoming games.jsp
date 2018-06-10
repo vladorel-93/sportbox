@@ -15,7 +15,7 @@
 <form action="/bets" method="post">
     <table cellspacing="2" cellpadding="2" border="1">
         <tr>
-            <th>Date and time</th>
+            <th>Date</th>
             <th>Home team</th>
             <th>Away team</th>
             <th>Make prediction</th>
