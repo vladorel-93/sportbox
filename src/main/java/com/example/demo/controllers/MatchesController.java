@@ -5,10 +5,7 @@ import com.example.demo.util.HtmlParser;
 import com.example.demo.repository.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.time.LocalDate;
@@ -39,7 +36,7 @@ public class MatchesController {
     }
 
     @RequestMapping(value = "bets", method = RequestMethod.POST)
-    public String saveBets(Match[] bets)
+    public @ResponseBody String saveBets(Match[] bets)
     {
 
         return "Personal bets";
