@@ -15,14 +15,14 @@
 <form action="/bets" method="post">
     <table cellspacing="2" cellpadding="2" border="1">
         <tr>
-            <th>Date</th>
+
             <th>Home team</th>
             <th>Away team</th>
             <th>Make prediction</th>
         </tr>
         <c:forEach items="${sessionScope.matches}" var="match">
             <tr>
-                <td>${match.Date_Time}</td>
+
                 <td>${match.homeTeam}</td>
                 <td>${match.awayTeam}</td>
                 <td>

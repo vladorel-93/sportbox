@@ -29,6 +29,10 @@ public class HtmlParser {
     public HtmlParser() {
     }
 
+    public void setUrl(String url) {
+        this.url = "https://news.sportbox.ru/stats/" + url;
+    }
+
     public List<Match> getMatches() {
         Document document;
         List<Match> matches = new ArrayList<>();
@@ -37,7 +41,6 @@ public class HtmlParser {
             Element onlyFootball = document.getElementById("sport_1");
             Elements spans = onlyFootball.getElementsByTag("span");
             matches = convertSpanToMatches(spans);
-            String fake ="";
         } catch (IOException z) {
         }
         return matches;
@@ -54,12 +57,9 @@ public class HtmlParser {
         for (int i= 0; i < teams.size(); i+= 2)
         {
             String date = url.substring(url.length() - 10);
-            matches.add(new Match(teams.get(i), teams.get(i++), LocalDate.parse(date).toEpochDay()));
+            int n = i + 1;
+            matches.add(new Match(teams.get(i), teams.get(n), LocalDate.parse(date).toEpochDay()));
         }
         return matches;
-    }
-
-    public void setUrl(String url) {
-        this.url = "https://news.sportbox.ru/stats/" + url;
     }
 }
