@@ -58,7 +58,7 @@ public class HtmlParser {
         {
             String date = url.substring(url.length() - 10);
             int n = i + 1;
-            matches.add(new Match(teams.get(i), teams.get(n), LocalDate.parse(date).toEpochDay()));
+            matches.add(new Match(teams.get(i), teams.get(n),date));
         }
         return matches;
     }

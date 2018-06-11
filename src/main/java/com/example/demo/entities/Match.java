@@ -25,30 +25,28 @@ public class Match {
     private String bet;
 
     @Column
-    private Long Date_Time;
+    private String data;
 
     @Column
     private String result;
 
-    public Match(String homeTeam, String awayTeam, Long date_Time){
+    public Match(String homeTeam, String awayTeam, String date_Time){
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;;
-        this.Date_Time = date_Time;
+        this.data = date_Time;
     }
 
-    public Match(String homeTeam, String awayTeam, String bet, Long date_Time) {
+    public Match(String homeTeam, String awayTeam, String bet, String date_Time) {
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
         this.bet = bet;
-        Date_Time = date_Time;
+        data = date_Time;
     }
 
-    public String getResult() {
-        return result;
-    }
+    public Match(){}
 
-    public void setResult(String result) {
-        this.result = result;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setHomeTeam(String homeTeam) {
@@ -63,8 +61,13 @@ public class Match {
         this.bet = bet;
     }
 
-    public void setDate_Time(Long date_Time) {
-        Date_Time = date_Time;
+
+    public void setResult(String result) {
+        this.result = result;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getHomeTeam() {
@@ -79,15 +82,15 @@ public class Match {
         return bet;
     }
 
-    public Long getDate_Time() {
-        return Date_Time;
+    public void setData(String data) {
+        this.data = data;
     }
 
-    public int getId() {
-        return id;
+    public String getData() {
+        return data;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public String getResult() {
+        return result;
     }
 }

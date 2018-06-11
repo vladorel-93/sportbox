@@ -31,7 +31,6 @@ public class MatchesController {
     @RequestMapping(value = "show_upcoming_games", method = RequestMethod.GET)
     public String showGames(HttpSession session, @RequestParam(value = "calendar")String date)
     {
-       // String newDate = date.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         parser.setUrl(date);
         List<Match> matches = parser.getMatches();
         session.setAttribute("matches", matches);
