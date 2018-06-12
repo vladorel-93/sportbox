@@ -1,5 +1,6 @@
 <%@page language="java" contentType="text/html; ISO-8859-1" pageEncoding="UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <html>
 <head>
@@ -16,7 +17,6 @@
 
 </head>
 <body>
-<form action="/bets" method="post">
     <table cellspacing="2" cellpadding="2" border="1">
         <tr>
             <th>Date</th>
@@ -30,17 +30,19 @@
                 <td>${match.homeTeam}</td>
                 <td>${match.awayTeam}</td>
                 <td>
-                    <select onselect="makePrediction(match.homeTeam, match.awayTeam)" name="result">
-                        <option>${match.homeTeam}</option>
-                        <option>${match.awayTeam}</option>
-                        <option>Ничья</option>
-                    </select>
+                    <form action="/bets/{home}/{away}/{result}" method="post">
+                        <input list="Results" name="result">
+                        <datalist id="Results">
+                            <option value="${match.homeTeam}" name="home">
+                            <option value="${match.awayTeam}" name="away">
+                            <option value="Ничья">
+                        </datalist>
+                        <input type="submit">
+                    </form>
                 </td>
             </tr>
         </c:forEach>
     </table>
-    <button type="submit">Save</button>
-</form>
 </body>
 </html>
 
