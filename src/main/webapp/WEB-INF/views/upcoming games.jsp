@@ -31,10 +31,10 @@
                 <td>${match.awayTeam}</td>
                 <td>
                     <form action="/bets/{home}/{away}/{result}" method="post">
-                        <input list="Results" name="result">
+                        <input list="Results" id="result">
                         <datalist id="Results">
-                            <option value="${match.homeTeam}" name="home">
-                            <option value="${match.awayTeam}" name="away">
+                            <option value="${match.homeTeam}" id="home">
+                            <option value="${match.awayTeam}" id="away">
                             <option value="Ничья">
                         </datalist>
                         <input type="submit">

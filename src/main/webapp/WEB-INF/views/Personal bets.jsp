@@ -4,9 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 </head>
 <body>
-<h2>fuck</h2>
-<div>${requestScope.result}
-${requestScope.away}
-</div>
+
+
 </body>
 </html>

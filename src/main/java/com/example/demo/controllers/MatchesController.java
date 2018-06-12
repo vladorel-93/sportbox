@@ -39,8 +39,8 @@ public class MatchesController {
     }
 
     @RequestMapping(value = "bets/{home}/{away}/{result}", method = RequestMethod.POST)
-    public String personalBets(@RequestParam("home") String home,
-                               @RequestParam("away")String away, @RequestParam("result")String result, ModelMap map){
+    public String personalBets(@PathVariable("home") String home,
+                               @PathVariable("away")String away, @PathVariable("result")String result, ModelMap map){
         map.addAttribute("result", result);
         map.addAttribute("home", home);
         map.addAttribute("away", away);
